@@ -99,9 +99,9 @@ window.addEventListener("scroll", function (e) {
     var hddSelect = document.querySelector('.hddSelect');
     var ramSelect = document.querySelector('.ramSelect');
     // displaySelect.offsetHeight
-    var firstPoint = 125;
-    var secondPoint = 375;
-    var thirdPoint = 625;
+    var firstPoint = 150;
+    var secondPoint = 300;
+    var thirdPoint = 450;
     // debugger
     if (scrolledValue > thirdPoint) {
         displaySelect.style.visibility = "hidden";

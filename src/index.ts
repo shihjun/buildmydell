@@ -36,7 +36,7 @@ for (var i = 0, length = displayRadios.length; i < length; i++) {
   // radio.addEventListener('mouseout', leaveFunc)
 }
 
-for (var i = 0, length = processorRadios.length; i < length; i++) {
+for (var i = 0; i < processorRadios.length; i++) {
   const radio = processorRadios[i]
   const defaultRadio = processorRadios[0]
   const selectedRadio = document.querySelector('#processor')
@@ -103,42 +103,50 @@ toggle.addEventListener('click', toggleFunction)
 
 
 // scroll to make div in .selections hide / show
-//   *** NOT WORKING ***
-const scrollableDiv = document.querySelector('.selections');
 
-scrollableDiv.addEventListener("scroll", e => {
+window.addEventListener("scroll", e => {
   // e.target represents the element being scrolled
   const container = e.target;
 
-  // scrollTop is the amount the element has been scrolled by
-  //const scrolledValue = container.scrollTop;
-  const scrolledValue = 0;
+  // console.log(window.scrollY);
+  // console.log(window.pageYOffset);
+  // console.log("secondPoint " + window.pageYOffset * 0.375);
+  // console.log("thirdPoint " + window.pageYOffset * 0.625);
 
-  // left container max height is 500px, so we change colors at the 1/3 and 2/3 points
+  var scrolledValue = window.scrollY
 
   const displaySelect: HTMLBodyElement = document.querySelector('.displaySelect');
   const processorSelect: HTMLBodyElement = document.querySelector('.processorSelect');
   const hddSelect: HTMLBodyElement = document.querySelector('.hddSelect');
   const ramSelect: HTMLBodyElement = document.querySelector('.ramSelect');
 
-  const firstPoint = 10
-  const secondPoint = 500;
+  // displaySelect.offsetHeight
 
-  if (scrolledValue > secondPoint) {
-    displaySelect.style.display = "none";
-    processorSelect.style.display = "none";
-    hddSelect.style.display = "none";
-    ramSelect.style.display = "block";
+  var firstPoint = 125;
+  var secondPoint = 375;
+  var thirdPoint = 625;
+  // debugger
+
+  if (scrolledValue > thirdPoint) {
+    displaySelect.style.visibility = "hidden";
+    processorSelect.style.visibility = "hidden";
+    hddSelect.style.visibility = "hidden";
+    ramSelect.style.visibility = "visible";
+  } else if (scrolledValue > secondPoint) {
+    displaySelect.style.visibility = "hidden";
+    processorSelect.style.visibility = "hidden";
+    hddSelect.style.visibility = "visible";
+    ramSelect.style.visibility = "hidden";
   } else if (scrolledValue > firstPoint) {
-    displaySelect.style.display = "none";
-    processorSelect.style.display = "block";
-    hddSelect.style.display = "block";
-    ramSelect.style.display = "none";
+    displaySelect.style.visibility = "hidden";
+    processorSelect.style.visibility = "visible";
+    hddSelect.style.visibility = "hidden";
+    ramSelect.style.visibility = "hidden";
   } else {
-    displaySelect.style.display = "none";
-    processorSelect.style.display = "none";
-    hddSelect.style.display = "none";
-    ramSelect.style.display = "none";
+    displaySelect.style.visibility = "visible";
+    processorSelect.style.visibility = "hidden";
+    hddSelect.style.visibility = "hidden";
+    ramSelect.style.visibility = "hidden";
   }
 });
 

@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  height: 100%;
   overflow: scroll;
 }
 
@@ -11,6 +10,7 @@ body {
   width: 100%;
   top: 0px;
   margin: 0px;
+  position: fixed;
 }
 
 
@@ -62,7 +62,9 @@ body {
   position: relative;
   width: 80%;
   left: 10%;
-  padding-bottom: 120px;
+  margin-bottom: 120px;
+  margin-top: 80px;
+  z-index: -1;
 }
 
 h1 {
@@ -132,10 +134,15 @@ h1 {
 }
 
 /*2nd page*/
-.secondPage, #checkout{
+.secondPage{
   display: none;
+  margin-top: 15%;
+  margin-bottom: 20%;
 }
 
+#checkout{
+  display: none;
+}
 
 .laptopImg2 {
   position: fixed;
@@ -152,19 +159,23 @@ h1 {
 
 ul.displaySelect, ul.hddSelect {
   padding: 0;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  height: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 250px;
   width: 25%;
 }
 
 ul.processorSelect, ul.ramSelect {
   padding: 0;
-  margin-top: 100px;
-  margin-bottom: 280px;
-  height: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 250px;
   width: 25%;
   margin-left: 75%;
+}
+
+.hddSelect, .processorSelect, .ramSelect {
+  visibility: hidden;
 }
 
 .secondPage p{
